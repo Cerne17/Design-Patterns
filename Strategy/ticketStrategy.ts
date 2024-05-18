@@ -1,3 +1,17 @@
+/* Baltimore Orioles Stadium Ticket Office invites software
+ * firms to bid for a project. They want to have a
+ * class library (with classes and interface) to calculate
+ * ticket sale price. Here are the rules for ticket sale
+ * at Stadium:
+ * - Ticket sale price consist of two parts: ticket
+ * price and sale tax.
+ * - Ticket price varies between children (age under
+ * 16 - $10 ), adults ($15) and seniors (age 65+ - $12).
+ * Baltimore Orioles Stadium Ticket Office will award
+ * the project to the design that allows users to add
+ * more ticket categories and tax rate calculation
+ * changes easily.
+ */
 export interface ITicket {
   execute(): number;
 }
