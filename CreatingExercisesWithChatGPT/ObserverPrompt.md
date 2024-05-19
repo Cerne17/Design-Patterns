@@ -73,9 +73,90 @@ To validate your implementation, consider writing the following unit tests:
   - `endAuction()`: Concludes the auction. Notifies all registered bidders about the auction's outcome and the winner.
 """
 
-Prompt: Can you create an exercise for me to practice the observer pattern, 
+Prompt: 
+Can you create an exercise for me to practice the observer pattern, 
 that simulates a simplified version of the youtube subscription and feed 
 technologies, having in mind the common Observer principles and their implications 
 (such as different Observers responding differently to the update structure)? 
 In the exercise include use cases, examples of inputs and outputs and a solid 
 and simple explanation of the scenario.
+
+Output: """
+### Exercise: YouTube Subscription and Feed System with Observer Pattern
+
+#### Scenario
+You are tasked with creating a simplified version of YouTube's subscription and feed system. In this system, users can subscribe to channels and receive updates in their feed whenever those channels upload new videos. Each user's feed can display updates differently, depending on the user's preferences.
+
+#### Objectives
+
+1. **Define a Channel Interface (`IChannel`):** This interface should include methods for uploading videos and managing subscribers.
+
+2. **Implement a User Class:** This class should act as an observer, subscribing to channels to receive updates about new video uploads.
+
+3. **Create a Channel Class:** This class acts as the subject. It should manage its subscribers and notify them whenever a new video is uploaded.
+
+#### Functional Requirements
+
+- Users should be able to subscribe and unsubscribe from channels.
+- When a channel uploads a new video, all subscribed users should be notified and their feeds updated with the new video.
+- Users' feeds can display the update differently, showcasing the flexibility of the observer pattern.
+
+### Unit Tests to Validate Your Code
+
+To ensure your implementation works as expected, consider writing the following unit tests:
+
+1. **Test User Subscription:**
+   - Subscribe a user to a channel and verify that the user is added to the channel's list of subscribers.
+
+2. **Test Video Upload Notification:**
+   - Upload a video to a channel and verify that all subscribed users receive an update in their feed.
+
+3. **Test User Unsubscription:**
+   - Unsubscribe a user from a channel and verify that they no longer receive updates when new videos are uploaded.
+
+#### Development Steps
+
+1. Start by defining the `IChannel` interface with the necessary methods for video uploads and subscriber management.
+2. Implement the `User` class, ensuring it can subscribe to channels, receive updates, and display those updates in a feed.
+3. Develop the `Channel` class with functionalities to manage subscribers, upload videos, and notify subscribers of new content.
+4. Write the specified unit tests to validate your system's functionality.
+
+### Tips in case of difficulty
+
+#### IChannel Interface
+- **Methods:**
+  - `uploadVideo(videoTitle: string)`: Uploads a new video to the channel.
+  - `addSubscriber(subscriber: IUser)`: Adds a new subscriber to the channel.
+  - `removeSubscriber(subscriber: IUser)`: Removes a subscriber from the channel.
+
+#### User Class (implements IUser)
+- **Properties:**
+  - `name`: The name of the user.
+  - `feed`: An array of video titles representing the user's feed.
+- **Methods:**
+  - `constructor(name: string)`: Initializes a new instance of the `User` with a name.
+  - `update(videoTitle: string)`: Adds a new video title to the user's feed.
+  - `subscribeTo(channel: IChannel)`: Subscribes the user to a channel.
+  - `unsubscribeFrom(channel: IChannel)`: Unsubscribes the user from a channel.
+
+#### Channel Class (implements IChannel)
+- **Properties:**
+  - `channelName`: The name of the channel.
+  - `subscribers`: An array of `IUser` instances subscribed to the channel.
+- **Methods:**
+  - `constructor(channelName: string)`: Initializes a new instance of the `Channel` with a name.
+  - `uploadVideo(videoTitle: string)`: Notifies all subscribers about the new video.
+  - `addSubscriber(subscriber: IUser)`: Adds a new subscriber to the channel.
+  - `removeSubscriber(subscriber: IUser)`: Removes a subscriber from the channel.
+
+This exercise provides a practical application of the Observer Pattern, simulating a real-world system where subjects (channels) notify observers (users) about state changes (new video uploads).
+"""
+
+Prompt: 
+Can you create an exercise for me to practice the observer pattern, having
+in mind the common Observer principles and their implications (such as
+different Observers responding differently to the update structure)? 
+In the exercise include use cases, examples of inputs and outputs 
+and a solid and simple explanation of the scenario.
+
+
