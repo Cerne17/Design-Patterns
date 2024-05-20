@@ -159,4 +159,78 @@ different Observers responding differently to the update structure)?
 In the exercise include use cases, examples of inputs and outputs 
 and a solid and simple explanation of the scenario.
 
+Output: """
+### Exercise: Smart Home System with Observer Pattern
+
+#### Scenario
+Imagine you are developing a Smart Home System where various devices (observers) react to environmental changes (events) reported by sensors (subjects). Each device in the smart home can respond differently to the same event, demonstrating the flexibility of the observer pattern.
+
+#### Objectives
+
+1. **Define a Sensor Interface (`ISensor`):** This interface should include methods for detecting changes in the environment (e.g., temperature change, motion detected) and managing devices that need to be notified of these changes.
+
+2. **Implement a Device Class:** This class should act as an observer, reacting to notifications from sensors. Examples of devices include a Thermostat, Lights, and Security Cameras.
+
+3. **Create Sensor Classes:** Implement different sensors as subjects that detect specific changes in the environment, such as a TemperatureSensor and a MotionSensor. These sensors notify all registered devices when a change is detected.
+
+#### Functional Requirements
+
+- Devices can subscribe to and unsubscribe from sensors.
+- When a sensor detects a change, it should notify all subscribed devices, providing them with the data they need to react appropriately.
+- Devices should react to notifications according to their functionality (e.g., a Thermostat adjusts the temperature, Lights turn on/off).
+
+### Unit Tests to Validate Your Code
+
+Consider writing the following unit tests to ensure your implementation meets the requirements:
+
+1. **Test Device Subscription:**
+   - Subscribe a device to a sensor and verify that the device is added to the sensor's list of observers.
+
+2. **Test Device Notification:**
+   - Simulate an environmental change detected by a sensor and verify that all subscribed devices receive the notification and react accordingly.
+
+3. **Test Device Unsubscription:**
+   - Unsubscribe a device from a sensor and verify that it no longer receives updates when the sensor detects changes.
+
+#### Development Steps
+
+1. Start by defining the `ISensor` interface with the necessary methods for environmental detection and observer management.
+2. Implement various `Device` classes, ensuring each can subscribe to sensors, receive updates, and perform actions based on those updates.
+3. Develop different `Sensor` classes that detect specific environmental changes and notify subscribed devices.
+4. Write the specified unit tests to validate the functionality of your smart home system.
+
+### Tips in case of difficulty
+
+#### ISensor Interface
+- **Methods:**
+  - `detectChange(data: any): void`: Simulates the detection of an environmental change.
+  - `addDevice(device: IDevice): void`: Registers a device to be notified of changes.
+  - `removeDevice(device: IDevice): void`: Unregisters a device.
+
+#### Device Classes (implements IDevice)
+- **Examples:**
+  - **Thermostat:** Reacts to temperature changes.
+  - **Lights:** Reacts to motion detection.
+  - **SecurityCamera:** Records when motion is detected.
+- **Common Methods:**
+  - `update(data: any): void`: Reacts to a notification from a sensor.
+
+#### Sensor Classes (implements ISensor)
+- **Examples:**
+  - **TemperatureSensor:** Notifies devices of temperature changes.
+  - **MotionSensor:** Notifies devices when motion is detected.
+- **Properties:**
+  - `devices`: An array of `IDevice` instances subscribed to the sensor.
+- **Methods:**
+  - `detectChange(data: any): void`: Notifies all subscribed devices about the detected change.
+"""
+
+Prompt: 
+Can you create an exercise for me to practice the observer pattern, having
+in mind the common Observer principles and their implications (such as
+different Observers responding differently to the update structure)? 
+In the exercise include use cases, examples of inputs and outputs 
+and a solid and simple explanation of the scenario.
+
+Output: 
 
